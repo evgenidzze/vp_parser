@@ -4,7 +4,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import random
 import time
-import undetected_chromedriver as uc
 
 from utils import click_until_success, get_vp_field
 

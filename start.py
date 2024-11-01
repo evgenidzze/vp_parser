@@ -5,7 +5,6 @@ from tkinter import filedialog
 import undetected_chromedriver as uc
 
 import openpyxl
-from selenium import webdriver
 
 from selenium_manage import perform_selenium_actions
 
