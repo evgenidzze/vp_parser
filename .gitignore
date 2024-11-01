@@ -2,3 +2,5 @@ venv
 data.csv
 parsed_data.xlsx
 server.log
+__pycache__
+.idea
