@@ -40,7 +40,6 @@ h11==0.14.0
 html5lib==1.1
 httplib2==0.22.0
 idna==3.6
-img2table==1.2.6
 ipython==8.19.0
 isodate==0.6.1
 jedi==0.19.1
