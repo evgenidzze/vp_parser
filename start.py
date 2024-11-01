@@ -2,8 +2,7 @@ import csv
 import logging
 import tkinter as tk
 from tkinter import filedialog
-import undetected_chromedriver as uc
-
+from selenium.webdriver import Chrome
 import openpyxl
 
 from selenium_manage import perform_selenium_actions
@@ -18,7 +17,7 @@ def get_vp_secret():
             ws.title = "parsed_data"
             ws.append(["Реєстраційний номер", "Номер ВП", "Категорія стягнення"])
             csv_reader = csv.reader(csv_file)
-            driver = uc.Chrome()
+            driver = Chrome()
             for row in csv_reader:
                 user_number = row[0]
                 print('data: ', user_number)
