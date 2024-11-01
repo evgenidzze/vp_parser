@@ -107,7 +107,6 @@ stack-data==0.6.3
 svglib==1.5.1
 tinycss2==1.2.1
 traitlets==5.14.0
-traits==6.3.2
 trio==0.23.1
 trio-websocket==0.11.1
 typing_extensions==4.9.0
