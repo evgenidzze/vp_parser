@@ -1,13 +1,8 @@
 import time
-import webbrowser
-
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from seleniumwire import webdriver
-
 from selenium_manage import url, human_like_wait, move_mouse_to_element
-from selenium.webdriver.chrome.options import Options
 
 
 def click_until_success(driver, button, user_number, storage):
