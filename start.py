@@ -23,12 +23,11 @@ def get_vp_secret():
             ws.title = "parsed_data"
             ws.append(["Реєстраційний номер", "Номер ВП", "Категорія стягнення"])
             csv_reader = csv.reader(csv_file)
-            extension_path = os.path.abspath('./CapSolver.Browser.Extension')
+            extension_path = os.path.abspath(os.path.join('.', 'CapSolver.Browser.Extension'))
             chrome_options = Options()
             chrome_options.add_argument(f'--load-extension={extension_path}')
 
             driver = webdriver.Chrome(options=chrome_options)
-            driver.maximize_window()
             driver.get(url)
             for row in csv_reader:
                 storage = LocalStorage(driver)
