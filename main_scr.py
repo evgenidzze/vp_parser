@@ -17,9 +17,11 @@ url = "https://erb.minjust.gov.ua/#/search-debtors"
 def start_browser(driver, data):
     csv_reader = data.get('csv_reader')
     ws = data.get('ws')
+    wb = data.get('wb')
     for row in csv_reader:
         user_number = row[0]
         perform_selenium_actions(driver, user_number, ws)
+    wb.save("parsed_data.xlsx")
 
 
 def run():
@@ -31,7 +33,7 @@ def run():
             ws.title = "parsed_data"
             ws.append(["Реєстраційний номер", "Номер ВП", "Категорія стягнення"])
             csv_reader = csv.reader(csv_file)
-            start_browser(data={'csv_reader': csv_reader, 'ws': ws})
+            start_browser(data={'csv_reader': csv_reader, 'ws': ws, 'wb': wb})
 
 
 def get_input(driver):
@@ -51,14 +53,12 @@ def get_input(driver):
 
 
 def perform_selenium_actions(driver, user_number, ws):
-    print(user_number)
     input_field = get_input(driver)
     if input_field:
         input_field.run_js("(el) => el.value = ''")
         input_field.type(user_number)
         time.sleep(2)
         click_search(driver)
-
         find_save_data(driver, ws, user_number)
     return
 
@@ -70,7 +70,6 @@ def find_save_data(driver, ws, user_number):
     tbody = table.select('tbody')
     trs_list = tbody.select_all('tr.print-no-page-break.top-border')
     for tr in trs_list:
-        print(tr)
         td_vp_num = tr.select('td[data-title="Номер ВП"]')
         td_cat = tr.select('td[data-title="Категорія стягнення"]')
         ws.append([user_number, td_vp_num.text, td_cat.text])
