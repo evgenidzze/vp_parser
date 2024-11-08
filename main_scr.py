@@ -57,7 +57,7 @@ def perform_selenium_actions(driver, user_number, ws):
     if input_field:
         input_field.run_js("(el) => el.value = ''")
         input_field.type(user_number)
-        time.sleep(2)
+        time.sleep(4)
         click_search(driver)
         find_save_data(driver, ws, user_number)
     return
